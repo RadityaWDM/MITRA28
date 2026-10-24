@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "rekrutmen-m28",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "const fs=require('fs'),p=require('path'),T={'.html':'text/html','.css':'text/css','.js':'text/javascript','.md':'text/markdown'};require('http').createServer((q,r)=>{let f=decodeURIComponent(q.url.split('?')[0]);if(f==='/')f='/index.html';const fp=p.join(process.cwd(),p.normalize(f));if(!fp.startsWith(process.cwd())){r.writeHead(403);return r.end()}fs.readFile(fp,(e,d)=>{r.writeHead(e?404:200,{'content-type':(T[p.extname(fp)]||'application/octet-stream')+'; charset=utf-8'});r.end(e?'not found':d)})}).listen(8765)"],
+      "port": 8765
+    },
+    {
+      "name": "rsia-pasutri",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "require('http').createServer((q,r)=>{require('fs').readFile('C:/Claude/RSIA Pasutri Bogor/index.html',(e,d)=>{r.writeHead(e?404:200,{'content-type':'text/html; charset=utf-8'});r.end(e?'not found':d)})}).listen(8767)"],
+      "port": 8767
+    },
+    {
+      "name": "m28-karier-v2",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "require('http').createServer((q,r)=>{require('fs').readFile('v2/m28-karier.html','utf8',(e,d)=>{r.writeHead(e?404:200,{'content-type':'text/html; charset=utf-8'});r.end(e?'not found':'<!doctype html><html><head><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1,viewport-fit=cover\"><style>body{margin:0}[hidden]{display:none!important}</style></head><body>'+d+'</body></html>')})}).listen(8766)"],
+      "port": 8766
+    }
+  ]
+}
